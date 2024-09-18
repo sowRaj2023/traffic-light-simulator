@@ -1,38 +1,133 @@
-.App {
-  text-align: center;
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e0e0e0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.traffic-system {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%;
+}
+
+.traffic-light {
+  width: 100px;
+  height: 300px;
+  background-color: #333;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.light {
+  width: 80px;
+  height: 80px;
+  background-color: gray;
+  border-radius: 50%;
+  transition: background-color 0.5s ease;
+}
+
+.light.red.active {
+  background-color: red;
+}
+
+.light.yellow.active {
+  background-color: yellow;
+}
+
+.light.green.active {
+  background-color: green;
+}
+
+.road {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background-color: #3e3e3e;
+  border: 3px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.road::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.vehicles {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  transition: transform 5s linear;
+  z-index: 0;
+}
+
+.vehicles.move {
+  transform: translateX(100%);
+}
+
+.vehicles.stop {
+  transform: translateX(0);
+}
+
+.ambulance {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  transition: transform 2s ease-in-out;
+  z-index: 2;
+}
+
+.ambulance.move-fast {
+  transform: translateX(100%);
+}
+
+.vehicle {
+  width: 60px;
+}
+
+.emergency-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #e74c3c;
   color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.App-link {
-  color: #61dafb;
+.emergency-button:hover {
+  background-color: #c0392b;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+
+
+
+
+

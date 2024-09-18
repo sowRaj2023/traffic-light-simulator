@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import TrafficProvider from './context/TrafficProvider'; // Adjust path if necessary
+import TrafficLight from './components/TrafficLight/TrafficLight';
+import EmergencyButton from './components/EmergencyButton/EmergencyButton';
+import PedestrianButton from './components/PedestrianButton/PedestrianButton';
+import TimerDisplay from './components/TimerDisplay/TimerDisplay';
+import './App.css'; // Optional: Include any global styles here
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TrafficProvider>
+      <div className="app">
+        <TimerDisplay />
+        <TrafficLight />
+        <div className="button-container">
+          <PedestrianButton />
+          <EmergencyButton />
+        </div>
+      </div>
+    </TrafficProvider>
   );
 }
 

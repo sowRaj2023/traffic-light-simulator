@@ -1,0 +1,15 @@
+.pedestrian-btn {
+    background-color: green;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .pedestrian-btn:hover {
+    background-color: darkgreen;
+    transform: scale(1.05);
+  }
